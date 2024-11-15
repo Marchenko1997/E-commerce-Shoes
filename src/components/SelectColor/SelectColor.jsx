@@ -17,7 +17,7 @@ export default function SelectColor({ changeColor }) {
 
   return (
     <>
-      <from onSubmit={formik.handleSubmit} className={css.selectColorForm}>
+      <form onSubmit={formik.handleSubmit} className={css.selectColorForm}>
         <Text as="p" size="3" mt="5" mb="3" weight="bold">
           Colors available
         </Text>
@@ -32,7 +32,6 @@ export default function SelectColor({ changeColor }) {
             setFieldValue={formik.setFieldValue}
             handleSubmit={formik.handleSubmit}
           />
-
           <RadioInput
             value={"blue"}
             lable={"Blue"}
@@ -46,7 +45,7 @@ export default function SelectColor({ changeColor }) {
             handleSubmit={formik.handleSubmit}
           />
         </RadioGroup.Root>
-      </from>
+      </form>
     </>
   );
 }
