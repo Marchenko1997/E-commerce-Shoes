@@ -1,11 +1,30 @@
-import AboutItem from "../AboutItem/AboutItem"
+import AboutItem from "../AboutItem/AboutItem";
+import { Section } from "@radix-ui/themes";
+import css from "./AboutProduct.module.css";
 
-const AboutProduct = () => {
+export default function AboutProduct({ product }) {
+  const {
+    description: {
+      additional1: { title: additionalTitle1, text: additionalText1 },
+      additional2: { title: additionalTitle2, text: additionalText2 },
+    },
+    images: { general: generalImages },
+  } = product;
+
   return (
-      <div>
-        <AboutItem />
-    </div>
-  )
+    <Section className={css.container}>
+      <AboutItem
+        title={additionalTitle1}
+        description={additionalText1}
+        image={generalImages[0]}
+        reverse={false}
+      />
+      <AboutItem
+        title={additionalTitle2}
+        description={additionalText2}
+        image={generalImages[1]}
+        reverse={true}
+      />
+    </Section>
+  );
 }
-
-export default AboutProduct
