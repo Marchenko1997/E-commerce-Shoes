@@ -1,9 +1,12 @@
-import React from 'react'
+import Navigation from "../Navigation/Navigation.jsx";
+import css from "./AppBar.module.css";
 
-const AppBar = () => {
+export default function AppBar() {
   return (
-    <div>AppBar</div>
-  )
+    <header className={css.header}>
+      <div className={css.navContainer}>
+        <Navigation />
+      </div>
+    </header>
+  );
 }
-
-export default AppBar
