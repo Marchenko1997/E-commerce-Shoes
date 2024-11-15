@@ -1,19 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
-import Layout from "../Layout/Layout";
+import Layout from "../Layout/Layout.jsx";
 
-const ProductPage = lazy(() => import("../../pages/ProductPage/ProductPage"));
-const CartPage = lazy(() => import("../../pages/CartPage/CartPage"));
 
-const App = () => {
+const ProductPage = lazy(() =>
+  import("../../pages/ProductPage/ProductPage.jsx")
+);
+const CartPage = lazy(() => import("../../pages/CartPage/CartPage.jsx"));
+const NotFoundPage = lazy(() =>
+  import("../../pages/NotFoundPage/NotFoundPage.jsx")
+);
+
+export default function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<ProductPage />} />
-        <Route path="/cart" element={<CartPage/>}/>
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
-};
-
-export default App;
+}
